@@ -12,6 +12,7 @@ public interface DonationRepository extends JpaRepository<Donation, Long> {
 
     public Donation findOneById(Long id);
 
+
     @Query("SELECT SUM(quantity) FROM Donation")
     Optional<Integer> bagsSum();
 

@@ -1,10 +1,7 @@
 package pl.coderslab.charity.service;
 
 import org.springframework.stereotype.Service;
-import pl.coderslab.charity.entity.Donation;
 import pl.coderslab.charity.repository.DonationRepository;
-
-import java.util.List;
 
 @Service
 public class DonationService {
@@ -14,7 +11,7 @@ public class DonationService {
         this.donationRepository = donationRepository;
     }
 
-    public Integer sumOfDonations() {return this.donationRepository.bagsSum().orElse(0);}
+    public Integer sumOfBags() {return this.donationRepository.bagsSum().orElse(0);}
 
-    public List<Donation> findAll() {return this.donationRepository.findAll();}
+    public Integer findAllWithSize() {return this.donationRepository.findAll().size();}
 }
