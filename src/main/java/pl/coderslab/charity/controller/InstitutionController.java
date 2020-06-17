@@ -16,9 +16,4 @@ public class InstitutionController {
 
 
 
-    @GetMapping("/")
-    public String getList(Model model){
-        model.addAttribute("institutions", institutionService.readAll());
-        return "index";
-    }
 }
