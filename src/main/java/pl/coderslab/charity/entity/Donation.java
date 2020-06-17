@@ -20,12 +20,14 @@ public class Donation {
     private LocalDate pickUpDate;
     private LocalTime pickUpTime;
     private String pickUpComment;
-    @OneToMany(mappedBy = "donation")
+    @ManyToMany
     private List<Category> categories;
-    @OneToMany // dopytać się w środę Tomka o tą relację pomiędzy Donation a Institution
-    private List<Institution> institution;
+    @ManyToOne
+    private Institution institution;
 
-    public Donation(Long id, Integer quantity, String street, String city, String zipCode, LocalDate pickUpDate, LocalTime pickUpTime, String pickUpComment, List<Category> categories, List<Institution> institution) {
+    public Donation(Long id, Integer quantity, String street, String city, String zipCode,
+                    LocalDate pickUpDate, LocalTime pickUpTime, String pickUpComment,
+                    List<Category> categories, Institution institution) {
         this.id = id;
         this.quantity = quantity;
         this.street = street;
@@ -113,11 +115,11 @@ public class Donation {
         this.categories = categories;
     }
 
-    public List<Institution> getInstitution() {
+    public Institution getInstitution() {
         return institution;
     }
 
-    public void setInstitution(List<Institution> institution) {
+    public void setInstitution(Institution institution) {
         this.institution = institution;
     }
 }

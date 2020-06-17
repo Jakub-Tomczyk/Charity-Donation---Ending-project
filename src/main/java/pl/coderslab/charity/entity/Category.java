@@ -8,8 +8,6 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @ManyToOne
-    private Donation donation;
 
     public Category(Long id, String name) {
         this.id = id;
