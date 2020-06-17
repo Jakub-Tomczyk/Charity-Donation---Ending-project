@@ -14,9 +14,9 @@ public class DonationController {
     }
 
     //sum all donations and all bags
-    @RequestMapping("/")
+    @RequestMapping("")
     public String sumOfBagsAndDonations(Model model){
-        model.addAttribute("bags",sumOfBagsAndDonations(model));
+        model.addAttribute("bags",donationService.sumOfDonations());
         model.addAttribute("donations",donationService.findAll().size());
         return "index";
     }
