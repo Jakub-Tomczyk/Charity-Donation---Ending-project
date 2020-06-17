@@ -14,4 +14,6 @@ public class DonationService {
     public Integer sumOfBags() {return this.donationRepository.bagsSum().orElse(0);}
 
     public Integer findAllWithSize() {return this.donationRepository.findAll().size();}
+
+    public Integer countOfDonation() {return this.donationRepository.donationCount().orElse(0);}
 }
