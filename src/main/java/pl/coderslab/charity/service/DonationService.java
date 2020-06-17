@@ -10,4 +10,6 @@ public class DonationService {
     public DonationService(DonationRepository donationRepository) {
         this.donationRepository = donationRepository;
     }
+
+    public Integer sumOfDonations() {return this.donationRepository.bagsSum().orElse(0);}
 }
