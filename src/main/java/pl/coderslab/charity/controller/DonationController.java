@@ -3,6 +3,7 @@ package pl.coderslab.charity.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import pl.coderslab.charity.entity.Category;
+import pl.coderslab.charity.entity.Institution;
 import pl.coderslab.charity.service.CategoryService;
 import pl.coderslab.charity.service.DonationService;
 import pl.coderslab.charity.service.InstitutionService;
@@ -24,7 +25,13 @@ public class DonationController {
 
     //wyświetlanie wszystkich Kategorii w formularzu.
     @ModelAttribute("categories")
-    public List<Category> categories(){
+    public List<Category> categories() {
         return categoryService.readAll();
+    }
+
+    //wyświetlanie wszystkich Instytucji (Fundacji) w Formularzu.
+    @ModelAttribute("institutions")
+    public List<Institution> institutionList() {
+        return institutionService.readAll();
     }
 }
