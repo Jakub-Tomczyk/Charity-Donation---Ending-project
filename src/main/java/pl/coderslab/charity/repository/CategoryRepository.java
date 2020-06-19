@@ -7,5 +7,5 @@ import pl.coderslab.charity.entity.Category;
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 
-    public  Category findOneById(Long id);
+
 }
