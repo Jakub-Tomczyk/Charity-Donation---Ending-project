@@ -93,11 +93,7 @@
                 <c:forEach items="${categories}" var="category">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input
-                                    type="checkbox"
-                                    name="categories"
-                                    value="${category.id}"
-                            />
+                            <input type="checkbox" name="categories" value="${category.id}" />
                             <span class="checkbox"></span>
                             <span class="description">${category.name}</span>
                         </label>
@@ -129,7 +125,7 @@
             <!-- STEP 3 -->
             <div data-step="3">
                 <h3>Wybierz organizacje, której chcesz pomóc:</h3>
-                <c:forEach items="${institusions}" var="institution">
+                <c:forEach items="${institutions}" var="institution">
                     <div class="form-group form-group--checkbox">
                         <label>
                             <form:radiobutton path="institution" items="${institution.id}"/>
@@ -155,16 +151,16 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <input type="text" name="${donation.street}"/> </label>
+                            <label> Ulica <form:input path="street" type="text" name="${donation.street}"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <input type="text" name="${donation.city}"/> </label>
+                            <label> Miasto <form:input path="city" type="text" name="${donation.city}"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <input type="text" name="${donation.zipCode}"/>
+                                Kod pocztowy <form:input path="zipCode" type="text" name="${donation.zipCode}"/>
                             </label>
                         </div>
 
@@ -178,17 +174,17 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <input type="date" name="pickUpDate" value="${donation.pickUpDate}"/> </label>
+                            <label> Data <form:input path="pickUpDate" type="date" name="pickUpDate" value="${donation.pickUpDate}"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <input type="time" name="pickUpTime" value="${donation.pickUpTime}"/> </label>
+                            <label> Godzina <form:input type="time" path="pickUpTime" name="pickUpTime" value="${donation.pickUpTime}"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <textarea name="more_info" rows="5"></textarea>
+                                <form:textarea path="pickUpComment"/>
                             </label>
                         </div>
                     </div>
