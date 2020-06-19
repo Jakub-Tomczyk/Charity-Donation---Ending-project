@@ -1,8 +1,12 @@
 package pl.coderslab.charity.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.charity.entity.Category;
+import pl.coderslab.charity.entity.Donation;
 import pl.coderslab.charity.entity.Institution;
 import pl.coderslab.charity.service.CategoryService;
 import pl.coderslab.charity.service.DonationService;
@@ -33,5 +37,18 @@ public class DonationController {
     @ModelAttribute("institutions")
     public List<Institution> institutionList() {
         return institutionService.readAll();
+    }
+
+    // metoda do odsyłania do formularza.
+    @GetMapping("/donation")
+    public String getDonation(Model model){
+        model.addAttribute("donation", new Donation());
+        return "form";
+    }
+
+    @PostMapping("formConfirmation")
+    public String postDonation(@ModelAttribute Donation donation){
+        donationService.save(donation);
+        return "formConfirmation";
     }
 }
