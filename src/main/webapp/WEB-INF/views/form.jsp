@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="<c:url  value="resources/css/style.css"/>"/>
 </head>
 <body>
 <header class="header--form-page">
@@ -128,7 +128,7 @@
                 <c:forEach items="${institutions}" var="institution">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <form:radiobutton path="institution" items="${institution.id}"/>
+                            <input type="radio" name="institution" value="${institution.id}"/>
                             <span class="checkbox radio"></span>
                             <span class="description">
                                 <div class="title">${institution.name}</div>
@@ -205,15 +205,15 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text"
-                                >4 worki ubrań w dobrym stanie dla dzieci</span
+                                <span class="summary--text" id="worki"
+                                >step 1 i 2</span
                                 >
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
                                 <span class="summary--text"
-                                >Dla fundacji "Mam marzenie" w Warszawie</span
+                                >step 3</span
                                 >
                             </li>
                         </ul>
@@ -286,7 +286,7 @@
     </div>
 </footer>
 
-<script src="js/app.js"></script>
+<script src="<c:url  value="resources/js/app.js"/>"></script>
 </body>
 </html>
 
