@@ -13,6 +13,6 @@ public class InstitutionConverter  implements Converter<String, Institution> {
     private InstitutionRepository institutionRepository;
     @Override
     public Institution convert(String id) {
-        return institutionRepository.findOneById(Long.parseLong(id));
+        return institutionRepository.getOne(Long.parseLong(id));
     }
 }
