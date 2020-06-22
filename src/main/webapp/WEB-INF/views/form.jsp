@@ -93,7 +93,7 @@
                 <c:forEach items="${categories}" var="category">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="checkbox" name="categories" value="${category.id}" />
+                            <input type="checkbox" name="categories" value="${category.id}" id="ListaKategorii" />
                             <span class="checkbox"></span>
                             <span class="description">${category.name}</span>
                         </label>
@@ -111,7 +111,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input type="number" name="quantity" path="quantity" step="1" min="1"/>
+                        <form:input type="number" name="quantity" path="quantity" step="1" min="1" id="bagsCount"/>
                     </label>
                 </div>
 
@@ -128,7 +128,7 @@
                 <c:forEach items="${institutions}" var="institution">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="radio" name="institution" value="${institution.id}"/>
+                            <input type="radio" name="institution" value="${institution.id}" id="foundation"/>
                             <span class="checkbox radio"></span>
                             <span class="description">
                                 <div class="title">${institution.name}</div>
@@ -151,22 +151,22 @@
                     <div class="form-section--column">
                         <h4>Adres odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Ulica <form:input path="street" type="text" name="${donation.street}"/> </label>
+                            <label> Ulica <form:input path="street" type="text" name="${donation.street}" id="street"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Miasto <form:input path="city" type="text" name="${donation.city}"/> </label>
+                            <label> Miasto <form:input path="city" type="text" name="${donation.city}" id="city"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Kod pocztowy <form:input path="zipCode" type="text" name="${donation.zipCode}"/>
+                                Kod pocztowy <form:input path="zipCode" type="text" name="${donation.zipCode}" id="zipCode"/>
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
-                                Numer telefonu <input type="phone" name="phone"/>
+                                Numer telefonu <input type="phone" name="phone" id="phoneNumber"/>
                             </label>
                         </div>
                     </div>
@@ -174,17 +174,17 @@
                     <div class="form-section--column">
                         <h4>Termin odbioru</h4>
                         <div class="form-group form-group--inline">
-                            <label> Data <form:input path="pickUpDate" type="date" name="pickUpDate" value="${donation.pickUpDate}"/> </label>
+                            <label> Data <form:input path="pickUpDate" type="date" name="pickUpDate" value="${donation.pickUpDate}" id="pickUpDate"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
-                            <label> Godzina <form:input type="time" path="pickUpTime" name="pickUpTime" value="${donation.pickUpTime}"/> </label>
+                            <label> Godzina <form:input type="time" path="pickUpTime" name="pickUpTime" value="${donation.pickUpTime}" id="pickUpTime"/> </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>
                                 Uwagi dla kuriera
-                                <form:textarea path="pickUpComment"/>
+                                <form:textarea path="pickUpComment" id="comment"/>
                             </label>
                         </div>
                     </div>
@@ -205,15 +205,15 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text" id="worki"
-                                >step 1 i 2</span
+                                <span class="summary--text" id="bagsCountDonate"
+                                ></span
                                 >
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
-                                <span class="summary--text"
-                                >step 3</span
+                                <span class="summary--text" id="foundationDonation"
+                                ></span
                                 >
                             </li>
                         </ul>
@@ -223,19 +223,19 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li>Prosta 51</li>
-                                <li>Warszawa</li>
-                                <li>99-098</li>
-                                <li>123 456 789</li>
+                                <li id="streetDonation"></li>
+                                <li id="cityDonation"></li>
+                                <li id="zipCodeDonation"></li>
+                                <li id="phoneNumberDonation"></li>
                             </ul>
                         </div>
 
                         <div class="form-section--column">
                             <h4>Termin odbioru:</h4>
                             <ul>
-                                <li>13/12/2018</li>
-                                <li>15:40</li>
-                                <li>Brak uwag</li>
+                                <li id="pickUpDateDonation"></li>
+                                <li id="pickUpTimeDonation"></li>
+                                <li id="commentDonation"></li>
                             </ul>
                         </div>
                     </div>
@@ -286,7 +286,7 @@
     </div>
 </footer>
 
-<script src="<c:url  value="resources/js/app.js"/>"></script>
+<script src="<c:url  value="/resources/js/app.js"/>"></script>
 </body>
 </html>
 
