@@ -1,9 +1,10 @@
 package pl.coderslab.charity.service;
 
-import org.springframework.security.core.userdetails.User;
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.coderslab.charity.entity.Role;
+import pl.coderslab.charity.entity.User;
 import pl.coderslab.charity.repository.RoleRepository;
 import pl.coderslab.charity.repository.UserRepository;
 
@@ -43,9 +44,6 @@ public class UserService {
         User user = findById(id);
         this.userRepository.delete(user);
     }
-    //tą metodę muszę zmodyfikować tak aby sprawdzała warunek. Jeśli password jest puste to wtedy wstawiaj mi automatycznie to hasło co
-    // jest w bazie danych. A jeśli wstawi się nowe to wtedy je "haszuj" ponownie. Brzmi fajnie, ale nie wiem jak to zrobić..
-    // ma to wyglądać trochę tak jak save.
     public void update(User user) {
         if(user.getPassword()==null){
             Set<Role> roles = new HashSet<>();
