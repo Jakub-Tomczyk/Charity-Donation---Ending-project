@@ -165,16 +165,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // TODO: get data from inputs and show them in summary
 
-            let bags = document.getElementById('bagsCount').value;
-            document.getElementById('bagsCountDonate').innerText = bags + " worki";
+            // let bags = document.getElementById('bagsCount').value;
+            // document.getElementById('bagsCountDonate').innerText = bags + " worki";
 
-            let foundations = document.getElementById('foundation').value;
-            document.getElementById('foundationDonation').innerText = foundations;
+            // let category = document.getElementById('categoryCount').value;
+            // document.getElementById('bagsCountDonate').innerHTML = category; //-> doszukać w zadaniach z modułu 4
+            //
+
+            const summary = document.querySelector(".summary").firstElementChild;
+            const summaryBags = summary.querySelectorAll(".summary--text")[0];
+            const bagsData = document.querySelector('[name="quantity"]');
+            summaryBags.innerHTML = bagsData.value + " worki";
+            const summaryInstitution = summary.querySelectorAll(".summary--text")[1];
+            const institutionData = document.querySelector('[name="institution"]:checked');
+            summaryInstitution.innerHTML = "Fundacja " + institutionData.dataset.name;
 
 
             let webSideForm = [
                 {valueId: 'street', summaryId: 'streetDonation'},
-                {valueId: 'city',summaryId: 'cityDonation'},
+                {valueId: 'city', summaryId: 'cityDonation'},
                 {valueId: 'zipCode', summaryId: 'zipCodeDonation'},
                 {valueId: 'phoneNumber', summaryId: 'phoneNumberDonation'},
                 {valueId: 'pickUpDate', summaryId: 'pickUpDateDonation'},

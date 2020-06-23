@@ -93,7 +93,7 @@
                 <c:forEach items="${categories}" var="category">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="checkbox" name="categories" value="${category.id}" id="ListaKategorii" />
+                            <input type="checkbox" name="categories" value="${category.id}" id="categoryCount" />
                             <span class="checkbox"></span>
                             <span class="description">${category.name}</span>
                         </label>
@@ -111,7 +111,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input type="number" name="quantity" path="quantity" step="1" min="1" id="bagsCount"/>
+                        <form:input type="number" name="quantity" path="quantity" step="1" min="1"/>
                     </label>
                 </div>
 
@@ -128,10 +128,10 @@
                 <c:forEach items="${institutions}" var="institution">
                     <div class="form-group form-group--checkbox">
                         <label>
-                            <input type="radio" name="institution" value="${institution.id}" id="foundation"/>
+                            <input type="radio" data-name="${institution.name}" name="institution" value="${institution.id}" />
                             <span class="checkbox radio"></span>
                             <span class="description">
-                                <div class="title">${institution.name}</div>
+                                <div class="title">${institution.name} </div>
                                 <div class="subtitle">${institution.description}</div>
                             </span>
                         </label>
@@ -205,14 +205,14 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text" id="bagsCountDonate"
+                                <span class="summary--text"
                                 ></span
                                 >
                             </li>
 
                             <li>
                                 <span class="icon icon-hand"></span>
-                                <span class="summary--text" id="foundationDonation"
+                                <span class="summary--text"
                                 ></span
                                 >
                             </li>
