@@ -26,7 +26,6 @@ public class UserService {
     public void save(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setEnabled(1);
-        // TODO :: First register than add ROLE_ADMIN
         if(user.getRoles() == null || user.getRoles().size()==0) {
             Set<Role> roles = new HashSet<>();
             roles.add(roleRepository.findOneByName("ROLE_USER"));
