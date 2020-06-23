@@ -47,7 +47,7 @@
         </div>
     </div>
 
-    <a href="#" class="btn btn--large">Załóż konto</a>
+    <a href="/donation" class="btn btn--large">ZŁÓŻ DONACJĘ</a>
 </section>
 
 <section class="about-us">
