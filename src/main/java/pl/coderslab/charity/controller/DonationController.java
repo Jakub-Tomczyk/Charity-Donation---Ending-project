@@ -45,7 +45,7 @@ public class DonationController {
         model.addAttribute("donation", new Donation());
         return "form";
     }
-
+    //otrzymywanie i zapisywanie formularza do bazy danych.
     @PostMapping("formConfirmation")
     public String postDonation(@ModelAttribute Donation donation){
         donationService.save(donation);
