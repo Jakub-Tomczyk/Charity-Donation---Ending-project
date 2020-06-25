@@ -111,7 +111,7 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input type="number" name="quantity" path="quantity" step="1" min="1"/>
+                        <form:input type="number" name="quantity" path="quantity" step="1" min="1" id="quantity"/>
                     </label>
                 </div>
 
@@ -205,9 +205,8 @@
                         <ul>
                             <li>
                                 <span class="icon icon-bag"></span>
-                                <span class="summary--text"
-                                ></span
-                                >
+                                <span class="summary--text" id="bags"></span>
+
                             </li>
 
                             <li>

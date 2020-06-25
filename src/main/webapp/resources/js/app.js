@@ -165,17 +165,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // TODO: get data from inputs and show them in summary
 
-            // let bags = document.getElementById('bagsCount').value;
-            // document.getElementById('bagsCountDonate').innerText = bags + " worki";
-
-            // let category = document.getElementById('categoryCount').value;
-            // document.getElementById('bagsCountDonate').innerHTML = category; //-> doszukać w zadaniach z modułu 4
-            //
 
             const summary = document.querySelector(".summary").firstElementChild;
-            const summaryBags = summary.querySelectorAll(".summary--text")[0];
-            const bagsData = document.querySelector('[name="quantity"]');
-            summaryBags.innerHTML = bagsData.value + " worki";
+            //const summaryBags = summary.querySelectorAll(".summary--text")[0];
+            //const bagsData = document.querySelector('[name="quantity"]');
+            //summaryBags.innerHTML = bagsData.value + " worki";
+            const quantity = document.getElementById('quantity').value;
+            const categories = document.querySelector('[name="categories"]:checked')
+            const categoriesDonation=categories.nextElementSibling.nextElementSibling;
+            if (quantity == 1) {
+                document.getElementById('bags').innerText = quantity + " worek, " + categoriesDonation.innerHTML;
+            } else if (quantity > 1 && quantity < 5) {
+                document.getElementById('bags').innerText = quantity + " worki, " + categoriesDonation.innerHTML;
+            } else if (quantity >= 5) {
+                document.getElementById('bags').innerText = quantity + " worków, " + categoriesDonation.innerHTML;
+            } else {
+                document.getElementById('bags').innerText = "Niepoprawna ilość worków!";
+            }
+
+
             const summaryInstitution = summary.querySelectorAll(".summary--text")[1];
             const institutionData = document.querySelector('[name="institution"]:checked');
             summaryInstitution.innerHTML = "Fundacja " + institutionData.dataset.name;
