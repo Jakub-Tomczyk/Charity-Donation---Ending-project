@@ -44,7 +44,7 @@ public class UserController {
     }
 
     //Odsyłanie do formularza rejestracji
-    @GetMapping("register")
+    @GetMapping("/createAccount")
     public String registerUser(Model model){
         model.addAttribute("user", new User());
         return "register";
@@ -52,7 +52,7 @@ public class UserController {
 
     // powrót z formularza i zapis do bazy danych
 
-    @PostMapping("/register")
+    @PostMapping("/createAccount")
     public String postUser(@Valid @ModelAttribute User user, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
             return "register";
