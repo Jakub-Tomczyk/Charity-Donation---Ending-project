@@ -28,4 +28,5 @@ public class HomeController {
         model.addAttribute("donations", donationService.countOfDonation());
         return "index";
     }
+
 }

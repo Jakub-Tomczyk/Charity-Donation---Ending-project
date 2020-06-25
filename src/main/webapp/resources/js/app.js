@@ -166,10 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // TODO: get data from inputs and show them in summary
 
 
-            const summary = document.querySelector(".summary").firstElementChild;
-            //const summaryBags = summary.querySelectorAll(".summary--text")[0];
-            //const bagsData = document.querySelector('[name="quantity"]');
-            //summaryBags.innerHTML = bagsData.value + " worki";
+
             const quantity = document.getElementById('quantity').value;
             const categories = document.querySelector('[name="categories"]:checked')
             const categoriesDonation=categories.nextElementSibling.nextElementSibling;
@@ -183,10 +180,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.getElementById('bags').innerText = "Niepoprawna ilość worków!";
             }
 
-
+            const summary = document.querySelector(".summary").firstElementChild;
             const summaryInstitution = summary.querySelectorAll(".summary--text")[1];
             const institutionData = document.querySelector('[name="institution"]:checked');
-            summaryInstitution.innerHTML = "Fundacja " + institutionData.dataset.name;
+            summaryInstitution.innerHTML = "Fundacja  " + "\"" + institutionData.dataset.name + "\"";
 
 
             let webSideForm = [
