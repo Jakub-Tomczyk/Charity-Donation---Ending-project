@@ -1,6 +1,7 @@
 package pl.coderslab.charity.controller;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.coderslab.charity.entity.User;
 import pl.coderslab.charity.fixture.InitDataFixture;
+import pl.coderslab.charity.model.CurrentUser;
 import pl.coderslab.charity.service.RoleService;
 import pl.coderslab.charity.service.UserService;
 
@@ -66,6 +68,15 @@ public class UserController {
             e.printStackTrace();
         }
         return "redirect:/";
+    }
+
+    @GetMapping("/login")
+    public String loginAccount(@AuthenticationPrincipal CurrentUser currentUser){
+        if(currentUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))){
+            return "redirect:/"; // tu mają być jeszcze opcje to przejścia do panelu administratora
+        } else if (currentUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_USER"))){
+            return "redirect:/"; // -> tu ma być przejście do strony na które może wejść użytkownik
+        } return null;
     }
 
 }
