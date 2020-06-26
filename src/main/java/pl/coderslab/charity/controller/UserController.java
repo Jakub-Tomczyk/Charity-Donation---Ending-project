@@ -65,7 +65,7 @@ public class UserController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "redirect:/login";
+        return "redirect:/";
     }
 
 }
