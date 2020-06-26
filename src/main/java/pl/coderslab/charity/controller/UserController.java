@@ -2,6 +2,7 @@ package pl.coderslab.charity.controller;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import pl.coderslab.charity.service.UserService;
 
 import javax.validation.Valid;
 
+@Controller
 public class UserController {
     private UserService userService;
     private InitDataFixture initDataFixture;
@@ -33,6 +35,7 @@ public class UserController {
     ) {
         return "You are logged as " + customUser;
     }
+
     // inicjalizacja roli.
     @GetMapping("/initData")
     @ResponseBody
@@ -47,7 +50,7 @@ public class UserController {
     @GetMapping("/createAccount")
     public String registerUser(Model model){
         model.addAttribute("user", new User());
-        return "register";
+        return "/register";
     }
 
     // powrót z formularza i zapis do bazy danych
@@ -55,7 +58,7 @@ public class UserController {
     @PostMapping("/createAccount")
     public String postUser(@Valid @ModelAttribute User user, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
-            return "register";
+            return "/register";
         }
         try {
             this.userService.save(user);
@@ -64,4 +67,5 @@ public class UserController {
         }
         return "redirect:/login";
     }
+
 }
