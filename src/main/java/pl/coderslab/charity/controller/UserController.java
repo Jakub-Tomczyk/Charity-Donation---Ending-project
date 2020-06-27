@@ -71,22 +71,4 @@ public class UserController {
         return "redirect:/";
     }
 
-    @GetMapping("/login")
-    public String loginUser(Principal principal, Model model){
-        if(principal !=null){
-            model.addAttribute("username", principal.getName());
-        }
-        return "/login";
-    }
-
-
-//    @GetMapping("/login")
-//    public String loginAccount(@AuthenticationPrincipal CurrentUser currentUser){
-//        if(currentUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))){
-//            return "redirect:/"; // tu mają być jeszcze opcje to przejścia do panelu administratora
-//        } else if (currentUser.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_USER"))){
-//            return "redirect:/"; // -> tu ma być przejście do strony na które może wejść użytkownik
-//        } return null;
-//    }
-
 }
